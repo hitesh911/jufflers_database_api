@@ -1,4 +1,5 @@
-from fastapi import FastAPI , Depends
+from fastapi import FastAPI , Depends , Response
+from fastapi.middleware.cors import CORSMiddleware
 from schemas import Create_parameters_model , Update_parameters_model
 from sqlalchemy.orm import Session
 import models 
@@ -7,7 +8,14 @@ password_key = "JUFFLER_GEEKS"
 app = FastAPI()
 # connection to the database 
 models.Base.metadata.create_all(bind=engine)
-
+# adding middlewares 
+add.add_middleware(
+    CORSMiddleware,
+    allow_origins = ["*"],
+    allow_credentials = True,
+    allow_methods = ["*"],
+    allow_headers=["*"],
+)
 # Dependency
 def get_db():
     database = SessionLocal()
