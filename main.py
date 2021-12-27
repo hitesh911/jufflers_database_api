@@ -53,6 +53,18 @@ async def read(key : str , db: Session = Depends(get_db)):
     return movies
 
 
+@app.get("/search")
+async def search(key : str ,search_query : str, db: Session = Depends(get_db)):
+    # intitilizing movies list 
+    movies = []
+    if key == password_key:
+        try :
+            movies = db.query(models.Movie).filter(models.Movie.name.contains(search_query))
+        except:
+            movies = []
+    return movies
+
+
     
 @app.delete("/delete/{imdb}")
 async def delete(imdb : str , key : str , db: Session = Depends(get_db)):

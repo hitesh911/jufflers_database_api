@@ -14,5 +14,6 @@ class Movie(Base):
     imdb = Column(String , unique = True)
     age_res = Column(String)
     download_url = Column(String)
+    trailer_url = Column(String)
     
 
