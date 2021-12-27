@@ -9,7 +9,7 @@ app = FastAPI()
 # connection to the database 
 models.Base.metadata.create_all(bind=engine)
 # adding middlewares 
-add.add_middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins = ["*"],
     allow_credentials = True,
