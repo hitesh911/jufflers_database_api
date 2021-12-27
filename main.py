@@ -58,10 +58,10 @@ async def search(key : str ,search_query : str, db: Session = Depends(get_db)):
     # intitilizing movies list 
     movies = []
     if key == password_key:
-        try :
-            movies = db.query(models.Movie).filter(models.Movie.name.contains(search_query))
-        except:
-            movies = []
+        # try :
+        movies = db.query(models.Movie).filter(models.Movie.name.contains(search_query))
+        # except:
+            # movies = []
     return movies
 
 

@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 
-SQLALCHEMY_DATABASE_URL = "postgresql://sbcsiztwxpcgnm:5a9f3c448edccb6d80a261b5a588be799040abf86dd5a1af8ea0ba0ef224b484@ec2-54-204-99-176.compute-1.amazonaws.com:5432/d97pjqqubil7om"
+SQLALCHEMY_DATABASE_URL = "postgresql://uzqembaougkjbd:fcc4f8eb2fcb83d6d39621c12f0a836c8f73284ddfee4494bd88b40a15e51420@ec2-3-211-228-251.compute-1.amazonaws.com:5432/d2md93msn8sj3j"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
