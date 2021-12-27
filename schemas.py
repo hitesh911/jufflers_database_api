@@ -9,6 +9,7 @@ class Create_parameters_model(BaseModel):
     imdb : str = "tt6320628"
     age_res : str = "R"
     download_url : str = "https://jufflersbot.herokuapp.com/downloadyt?urlyt=https://youtu.be/K7MfUDxzAzE"
+    trailer_url : str = "https://www.youtube.com/embed/2QKg5SZ_35I"
 
 class Update_parameters_model(BaseModel):
     name : str = "NULL"
@@ -18,3 +19,4 @@ class Update_parameters_model(BaseModel):
     imdb : str = "NULL"
     age_res : str = "NULL"
     download_url : str ="NULL"
+    trailer_url : str = "NULL"
