@@ -62,6 +62,7 @@ async def delete(imdb : str , key : str , db: Session = Depends(get_db)):
             movie_to_delete = movie_object.delete(synchronize_session=False)
             db.commit()
         else:
+            movie_to_delete = 0
             movie_name = None
         
 
