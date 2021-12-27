@@ -55,22 +55,22 @@ async def read(key : str , db: Session = Depends(get_db)):
     
 @app.delete("/delete/{imdb}")
 async def delete(imdb : str , key : str , db: Session = Depends(get_db)):
-    movie_object = db.query(models.Movie).filter(models.Movie.imdb == imdb)
-    if movie_object.count() != 0:
-        movie_name = movie_object.first().name
-    else:
-        movie_name = None
     if key == password_key:
-        movie_to_delete = movie_object.delete(synchronize_session=False)
-        db.commit()
-    else:
-        movie_to_delete = 0
-
-    if movie_to_delete:
-        return {"Movie deleted successfully ": movie_name }
+        movie_object = db.query(models.Movie).filter(models.Movie.imdb == imdb)
+        if movie_object.count() != 0:
+            movie_name = movie_object.first().name
+            movie_to_delete = movie_object.delete(synchronize_session=False)
+            db.commit()
+        else:
+            movie_name = None
         
+
+        if movie_to_delete:
+            return {"Movie deleted successfully ": movie_name }
+        else:
+            return {"Movie not found with id : ": imdb }
     else:
-        return {"Movie not found with id : ": imdb }
+        return {"Wrong key ":key}
     
 @app.put("/update" )
 async def update(key :str ,imdb: str, parameter_schema : Update_parameters_model , db: Session = Depends(get_db)):
