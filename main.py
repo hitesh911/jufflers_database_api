@@ -108,6 +108,10 @@ async def update(key :str ,imdb: str, parameter_schema : Update_parameters_model
                 response["imdb"] = [movie_object.first().imdb , parameter_schema.imdb ]
                 movie_object.update( {"imdb" : parameter_schema.imdb} , synchronize_session=False)
                 db.commit()
+            if parameter_schema.trailer_url != "NULL":
+                response["trailer_url"] = [movie_object.first().trailer_url , parameter_schema.trailer_url]
+                movie_object.update( {"trailer_url" : parameter_schema.trailer_url} , synchronize_session=False)
+                db.commit()
             else : 
                 response["No change found"] = "nothing"
             return response
