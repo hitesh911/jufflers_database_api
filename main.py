@@ -29,6 +29,7 @@ async def create(key :str , parameter_schema : Create_parameters_model , db: Ses
                 imdb = parameter_schema.imdb,
                 age_res = parameter_schema.age_res,
                 download_url = parameter_schema.download_url,
+                trailer_url = parameter_schema.trailer_url,
             )
             db.add(new_movie)
             db.commit()
